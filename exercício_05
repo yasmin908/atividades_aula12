@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int vetor[25];
+    int numero, encontrado = 0;
+
+    srand(time(NULL));
+
+    // Preenche o vetor com valores aleatórios
+    for(int i = 0; i < 25; i++) {
+        vetor[i] = rand() % 101;
+    }
+
+    // Mostra o vetor
+    printf("Vetor gerado:\n");
+    for(int i = 0; i < 25; i++) {
+        printf("%3d ", vetor[i]);
+    }
+
+    // Entrada do usuário
+    printf("\n\nDigite um numero para buscar no vetor: ");
+    scanf("%d", &numero);
+
+    // Procura o número no vetor
+    for(int i = 0; i < 25; i++) {
+        if(vetor[i] == numero) {
+            printf("Numero encontrado na posicao %d\n", i);
+            encontrado = 1;
+        }
+    }
+
+    // Caso não tenha encontrado
+    if(encontrado == 0) {
+        printf("Numero nao encontrado no vetor.\n");
+    }
+
+    return 0;
+}
