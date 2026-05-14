@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int vetor[25];
+    int opcao;
+
+    srand(time(NULL));
+
+    // Preenche o vetor com números aleatórios
+    for(int i = 0; i < 25; i++) {
+        vetor[i] = rand() % 101;
+    }
+
+    // Mostra o vetor original
+    printf("Vetor original:\n");
+    for(int i = 0; i < 25; i++) {
+        printf("%3d ", vetor[i]);
+    }
+
+    // Escolha do usuário
+    printf("\n\nEscolha a ordenacao:\n");
+    printf("1 - Crescente\n");
+    printf("2 - Decrescente\n");
+    printf("Opcao: ");
+    scanf("%d", &opcao);
+
+    // Ordenação (Bubble Sort)
+    for(int i = 0; i < 24; i++) {
+        for(int j = 0; j < 24 - i; j++) {
+            if(opcao == 1) {
+                // crescente
+                if(vetor[j] > vetor[j + 1]) {
+                    int temp = vetor[j];
+                    vetor[j] = vetor[j + 1];
+                    vetor[j + 1] = temp;
+                }
+            } else if(opcao == 2) {
+                // decrescente
+                if(vetor[j] < vetor[j + 1]) {
+                    int temp = vetor[j];
+                    vetor[j] = vetor[j + 1];
+                    vetor[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    // Mostra o vetor ordenado
+    printf("\nVetor ordenado:\n");
+    for(int i = 0; i < 25; i++) {
+        printf("%3d ", vetor[i]);
+    }
+
+    printf("\n");
+
+    return 0;
+}
