@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int vetor[25];
+    int maior, posicao;
+
+    srand(time(NULL));
+
+    // Preenche o vetor
+    for(int i = 0; i < 25; i++) {
+        vetor[i] = rand() % 101;
+    }
+
+    // Inicializa o maior com o primeiro elemento
+    maior = vetor[0];
+    posicao = 0;
+
+    // Exibe o vetor e encontra o maior
+    printf("Vetor:\n");
+    for(int i = 0; i < 25; i++) {
+        printf("%3d ", vetor[i]);
+
+        if(vetor[i] > maior) {
+            maior = vetor[i];
+            posicao = i;
+        }
+    }
+
+    printf("\n\nMaior valor: %d\n", maior);
+    printf("Posicao: %d\n", posicao);
+
+    return 0;
+}
